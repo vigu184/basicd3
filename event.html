@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div{
+                height: 100px;
+                width: 100px;
+                background-color: blueviolet;
+                align-items: center;
+                vertical-align: middle;
+            }
+            body{
+                background-color: royalblue;
+            }
+        </style>
+            <script src="https://d3js.org/d3.v5.min.js"></script>
+    </head>
+    <body>
+        <div></div>
+        <script>
+            d3.selectAll("div")
+            .on("mouseover", function(){
+                d3.select(this).style("background-color","grey")
+            console.log(d3.event);
+            console.log(d3.mouse(this));
+            });
+
+            d3.selectAll("div").on("mouseout",function(){
+                d3.select(this).style("background-color","green")
+            });
+        </script>
+    </body>
+</html>
