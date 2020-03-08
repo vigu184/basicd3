@@ -20,14 +20,16 @@
         <script>
             d3.selectAll("div")
             .on("mouseover", function(){
-                d3.select(this).style("background-color","grey")
+                d3.select(this).style("background-color","grey").text("Hi")
             console.log(d3.event);
             console.log(d3.mouse(this));
             });
 
             d3.selectAll("div").on("mouseout",function(){
-                d3.select(this).style("background-color","green")
+                d3.select(this).style("background-color","green").text("Bye!")
             });
+      
+            
         </script>
     </body>
 </html>
