@@ -7,24 +7,19 @@
     <body>
         <svg height = "250px" width="500px"></svg>
         <script>
-            var b = [5,9,6,4,3];
-            var x = 100;
-            const height = 250;
-            for(var i=0; i<b.length;i++)
-            {
-                var svg = d3.select("svg").data(b).append("rect").attr("x",x).attr("y",height - (b[i]*20))
-            .attr("width",20).attr("height", b[i]*20).attr("fill", function(b,i){
-                    if(b[i]>0)
-                    {
-                        return "red";
-                    }
-                    else
-                    {
-                        return "blue";
-                    }
-                })
-            x = x + 25;
-            }
+            var b = [5,9,6,4,3]; //Data 
+            var x = 100;//Position of first bar in x axis
+            const height = 250;//Height of svg taken as it is
+                var svg = d3.select("svg")//Select svg
+                .selectAll("rect")//select all rectangles
+                .data(b)//Binds data to the rectanges in svg
+                .enter()//as b is only first element (that is 5), enter creates placeholder
+                .append("rect")//According to placeholders rectangles are appended
+                .attr("x",(d,i)=>x + 22*i)//Iterating for bar at different positions on x-axis
+                .attr("y", d => height - d * 20)//Lowering the bar from top 
+                .attr("width", 20) // Fixed width at 20
+                .attr("height", d => d*20) //Determine height of bar
+                .attr("fill",d => d < 6 ? "red" : "blue")  //Determine colour of bar
         </script>
     </body>
 </html>
