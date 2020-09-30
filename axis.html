@@ -5,20 +5,20 @@
     </head>
     <body>
         <script>
-            var data = [100,200,400,700];
+            var data = [100,200,400,700];  
 
-            var svg  = d3.select("body")
+            var svg  = d3.select("body") 
             .append("svg")
-            .attr("width", 1000)
-            .attr("height",1000)
+            .attr("width", 1020)     //width
+            .attr("height",1020)     //height
 
             var scale = d3.scaleLinear()
             .domain([0, d3.max(data)])
-            .range([50, 350])
+            .range([50, 400])          
 
             var scale_y = d3.scaleLinear()
-            .domain([700,0])
-            .range([50, 350])
+            .domain([700,0])     //domain
+            .range([50, 400])   //range
 
             var x_axis = d3.axisBottom().scale(scale)
 
@@ -26,9 +26,9 @@
 
             svg.append("g")
             .attr("transform","translate(0,450)")
-            .call(x_axis)
+            .call(x_axis)  //call
 
-            svg.append("g").attr("transform","translate(50,100)").call(y_axis)
+            svg.append("g").attr("transform","translate(50,100)").call(y_axis)  //translate
         </script>
     </body>
 </html>
